@@ -1,8 +1,8 @@
 //import config from "./app";
 
-async function fetchPokemon() {
+async function fetchPokemon(params) {
     try {
-      const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=25');
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon${params}`);
       if (!response.ok) {
         throw new Error(`Something went wrong. Error status: ${response.status}`);
       }

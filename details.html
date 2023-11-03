@@ -6,16 +6,15 @@
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <link type="text/css" rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/74e6607f1f.js" crossorigin="anonymous"></script>
-    <script type="module" src="./js/index.js"></script>
-    <title>PokemonWeb | Home</title>
+    <script type="module" src="./js/details.js"></script>
+    <title>PokemonWeb</title>
     <script> </script>
 </head>
 <body>
     <header>
         <nav>
             <ul class="nav-list">
-                <li><a href="index.html" class="li-current">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="facts.html">PokeFact</a></li>
                 <li><a href="search.html">Find a pokemon</a></li>
             </ul>
@@ -23,16 +22,24 @@
         </nav>
     </header>
 
-    <div id="pokemon-show">
-        <i class="fa-solid fa-chevron-left" id="paging-back"></i>
-        <div id="pokemon-container"></div>
-        <i class="fa-solid fa-chevron-right" id="paging-forward"></i>
+    <div id="pokemon-details">
+        <img id="image" src="" alt="Default">
+        <div id="text">
+            <h2 id="name"></h2>
+            <p id="type"></p>
+            <p id="description"></p>
+            <p id="height"></p>
+            <p id="weight"></p>
+            <p id="abilities"></p>
+            <p id="moves"></p>
+        </div>
     </div>
 
     <footer>
         <p>Created by <a href=#>Nicolina Smith</a></p>
         <p>Pokemon fact from <a href="https://pokeapi.co/">PokéAPI</a></p>
     </footer>
+
     
 </body>
 </html>
