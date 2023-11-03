@@ -40,6 +40,22 @@ async function fetchCharacteristics(pokemonID) {
     }
 }
 
+async function fetchTypes() {
+    try {
+      const response = await fetch('https://pokeapi.co/api/v2/type/');
+      if (!response.ok) {
+        throw new Error(`Something went wrong. Error status: ${response.status}`);
+      }
+      
+      const allTypes = await response.json();
+      const types = allTypes.results;
+      return types.map(type => type.name);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+
+}
+
   
 
 /*
@@ -48,5 +64,5 @@ async function fetchCharacteristics(pokemonID) {
 */
 
 export {fetchPokemon};
-export {fetchCharacteristics}
-//export {fetchImg};
+export {fetchCharacteristics};
+export {fetchTypes};
