@@ -24,6 +24,12 @@ nav {
     height: 60px;
 }
 
+nav h1 {
+    color: rgb(185, 145, 211);
+    margin-right: 40px;
+    font-family: 'Lobster', cursive;
+}
+
 
 .nav-list {
     display: flex;
