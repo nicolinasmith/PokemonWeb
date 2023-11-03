@@ -10,21 +10,36 @@ async function fetchPokemon() {
       const allPokemon = await response.json();
       return allPokemon;
     } catch (error) {
+      console.error('Error:', error);
+    }
+}
+
+async function fetchCharacteristics(pokemonID) {
+    try {
+      const url = `https://pokeapi.co/api/v2/characteristic/${pokemonID}/`
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(`Something went wrong. Error status: ${response.status}`);
+      }
+      const data = await response.json();
+
+      let englishDescription = '';
+
+      for (const description of data.descriptions) {
+        if (description.language.name === 'en') {
+            englishDescription = description.description;
+            break;
+        }
+      }
+
+    return englishDescription;
+
+    } catch (error) {
       console.error('Fel vid hämtning av Kanto-pokemon:', error);
     }
 }
 
-/*
-function fetchImg(pokemonID) {
-
-    try {
-        const response = fetch( `https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemonID}.svg`);
-
-      } catch (error) {
-        console.error('Fel vid hämtning av Kanto-pokemon:', error);
-      }
-
-}*/
   
 
 /*
@@ -33,4 +48,5 @@ function fetchImg(pokemonID) {
 */
 
 export {fetchPokemon};
+export {fetchCharacteristics}
 //export {fetchImg};

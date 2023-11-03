@@ -1,34 +1,43 @@
-import { fetchPokemon } from "./api.js";
+import { fetchPokemon, fetchCharacteristics } from "./api.js";
 
-const container = document.getElementById('pokemon-container');
+const pokemonContainer = document.getElementById('pokemon-container');
 
 await displayPokemon();
 
 async function displayPokemon() {
     try {
         const pokemons = await fetchPokemon();
-        console.log(pokemons);
-        
+        const promises = pokemons.results.map(async pokemon => {
+            const url = pokemon.url;
+            const findID = url.split('/');
+            const pokemonID = findID[findID.length - 2]; 
 
-        pokemons.results.forEach(pokemon => {
-            const url = `https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemon.url.match(/\/(\d+)\/$/)[1]}.svg`;
-
-            const pokemonDiv = document.createElement('div');
-            const pokemonName = document.createElement('p');
+            const containerElement = document.createElement('div');
+            const textContainer = document.createElement('div');
+            const nameElement = document.createElement('b');
             const imgElement = document.createElement('img');
-            imgElement.src = url;
+            const characteristicsElement = document.createElement('i');
+            
+            imgElement.src = `https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemonID}.svg`;
             imgElement.alt = pokemon.name;
 
-            imgElement.classList.add('pokemon-img');
-            pokemonDiv.classList.add('pokemon-style');
+            let pokemonCharacteristics = await fetchCharacteristics(pokemonID);
+            characteristicsElement.textContent = pokemonCharacteristics;
+            nameElement.textContent = pokemon.name.toUpperCase();
 
-            pokemonName.textContent = pokemon.name.toUpperCase();
-            pokemonDiv.appendChild(imgElement);
-            pokemonDiv.appendChild(pokemonName);
-            container.appendChild(pokemonDiv);
+            imgElement.classList.add('pokemon-img');
+            containerElement.classList.add('pokemon-style');
+
+            containerElement.appendChild(imgElement);
+            textContainer.appendChild(nameElement);
+            textContainer.appendChild(characteristicsElement);
+            containerElement.appendChild(textContainer);
+            pokemonContainer.appendChild(containerElement);
         });
+
+        await Promise.all(promises);
     } catch (error) {
-        console.error("Ett fel uppstod: " + error);
+        console.error("Error:" + error);
     }
 }
 
