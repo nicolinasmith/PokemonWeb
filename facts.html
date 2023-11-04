@@ -6,6 +6,7 @@
         <meta name="keywords" content="HTML, CSS, JavaScript">
         <link type="text/css" rel="stylesheet" href="css/style.css">
         <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/74e6607f1f.js" crossorigin="anonymous"></script>
         <script type="module" src="./js/facts.js"></script>
         <title>PokemonWeb | PokeFact</title>
         <script> </script>
@@ -23,15 +24,30 @@
         </header>
 
         <main id="pokemon-fact">
+
+            <div class="frame">
+                <div id="random-fact">
+                    <h2>Did you know?</h2>
+                    <div id="random-fact-container">
+                        <i class="fa-solid fa-chevron-left" id="paging-back"></i>
+                        <div id="fact-container"></div>
+                        <i class="fa-solid fa-chevron-right" id="paging-forward"></i>
+                    </div>
+                </div>
+            </div>
     
-            <div id="types">
-                <h2>Pokemon types</h2>
-                <div id="types-container"></div>
+            <div class="frame">
+                <div id="types">
+                    <h2>Pokemon types</h2>
+                    <div id="types-container"></div>
+                </div>
             </div>
 
-            <div id="encounters">
-                <h2>Encounters</h2>
-                <div id="encounters-container"></div>
+            <div class="frame">
+                <div id="encounters">
+                    <h2>Encounters</h2>
+                    <div id="encounters-container"></div>
+                </div>
             </div>
 
         </main>

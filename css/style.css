@@ -135,8 +135,9 @@ i {
 /*POKÉFACTS*/
 #pokemon-fact {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
 }
 
 #types, #encounters {
@@ -149,6 +150,15 @@ i {
     align-items: center;
     margin: auto;
     overflow: auto;
+    border: 2px solid rgb(185, 145, 211);
+}
+
+.frame {
+    background-color: #0d0b0c;
+    padding: 25px;
+    border: 2px solid rgb(185, 145, 211);
+    border-radius: 10px;
+    width: 30%;
 }
 
 #types h2, #encounters h2 {
@@ -167,6 +177,29 @@ i {
     margin-top: auto;
     align-items: center;
     text-align: center;
+}
+
+#random-fact {
+    color: rgb(185, 145, 211)
+}
+
+#random-fact h2 {
+    text-align: center;
+}
+
+#fact-container {
+    background-color: #fff;
+    color: black;
+    padding: 20px;
+    border: 1px solid rgb(185, 145, 211);
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#random-fact-container {
+    display: flex;
+    flex-direction: row;
 }
 
 /*DETAILS*/
@@ -203,3 +236,41 @@ i {
 .box-shadow {
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
+/*SEARCH*/
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 80%;
+    height: 100%;
+    color: #fff;
+}
+
+#search-input {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid rgb(185, 145, 211);
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px;
+}
+
+#search-button {
+    background-color: rgb(185, 145, 211);
+    border: none;
+    border-radius: 10px;
+    width: 150px;
+    height: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#search-button:hover {
+    cursor: pointer;
+    background-color: rgb(185, 154, 205);
+    color: #fff;
+}
+
