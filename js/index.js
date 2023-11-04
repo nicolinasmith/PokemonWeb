@@ -24,8 +24,8 @@ pagingForward.addEventListener('click', async () => {
 
 async function updatePokemonList() {
     try {
-        const offset = currentPageIndex * 10;
         pokemonContainer.innerHTML = '';
+        const offset = currentPageIndex * 10;
         const pokemons = await fetchPokemon(`?limit=10&offset=${offset}`);
 
         const promises = pokemons.results.map(async pokemon => {
@@ -65,7 +65,7 @@ async function updatePokemonList() {
 
         await Promise.all(promises);
     } catch (error) {
-        console.error("Error: " + error);
+        console.error("Error:" + error);
     }
 }
 

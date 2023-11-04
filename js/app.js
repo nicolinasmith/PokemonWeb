@@ -7,6 +7,10 @@ const config = {
         admin: 'Nicolina Smith'
     }, 
     endpoints: { 
+        fetchPokemon: 'pokemon',
+        fetchCharacteristics: 'characteristic/',
+        fetchEncounters: 'encounter-method/',
+        fetchTypes: 'type/'
     }
 };
 

@@ -1,8 +1,14 @@
-//import config from "./app";
+import config from "./app.js";
+
+const baseUrl = config.apis.pokeApi;
+const endpoints = config.endpoints;
 
 async function fetchPokemon(params) {
+
     try {
-      const response = await fetch(`https://pokeapi.co/api/v2/pokemon${params}`);
+      const url = baseUrl + endpoints.fetchPokemon + params;
+      const response = await fetch(url);
+
       if (!response.ok) {
         throw new Error(`Something went wrong. Error status: ${response.status}`);
       }
@@ -15,25 +21,17 @@ async function fetchPokemon(params) {
 }
 
 async function fetchCharacteristics(pokemonID) {
+
     try {
-      const url = `https://pokeapi.co/api/v2/characteristic/${pokemonID}/`
+      const url = baseUrl + endpoints.fetchCharacteristics + pokemonID;
       const response = await fetch(url);
 
       if (!response.ok) {
         throw new Error(`Something went wrong. Error status: ${response.status}`);
       }
       const data = await response.json();
-
-      let englishDescription = '';
-
-      for (const description of data.descriptions) {
-        if (description.language.name === 'en') {
-            englishDescription = description.description;
-            break;
-        }
-      }
-
-    return englishDescription;
+      const englishDescription = data.descriptions.find(description => description.language.name === 'en');
+      return englishDescription ? englishDescription.description : 'Description is missing.';
 
     } catch (error) {
       console.error('Fel vid hämtning av Kanto-pokemon:', error);
@@ -41,19 +39,50 @@ async function fetchCharacteristics(pokemonID) {
 }
 
 async function fetchTypes() {
+
     try {
-      const response = await fetch('https://pokeapi.co/api/v2/type/');
+      const url = baseUrl + endpoints.fetchTypes;
+      const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`Something went wrong. Error status: ${response.status}`);
       }
       
-      const allTypes = await response.json();
-      const types = allTypes.results;
+      const data = await response.json();
+      const types = data.results;
       return types.map(type => type.name);
     } catch (error) {
       console.error('Error:', error);
     }
 
+}
+
+async function fetchEncounters() {
+
+  try {
+    const url = baseUrl + endpoints.fetchEncounters;
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Something went wrong. Error status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data.results;
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+async function fetchEncounterDetails(url) {
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Something went wrong. Error status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error:', error);
+  }
 }
 
   
@@ -66,3 +95,5 @@ async function fetchTypes() {
 export {fetchPokemon};
 export {fetchCharacteristics};
 export {fetchTypes};
+export {fetchEncounters};
+export {fetchEncounterDetails};

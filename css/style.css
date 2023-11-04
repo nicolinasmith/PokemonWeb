@@ -63,7 +63,7 @@ footer {
     padding: 60px;
     background-color: #0d0b0c;
     border-top: 2px solid rgb(185, 145, 211);
-    margin-top: 30px;
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
 }
@@ -94,6 +94,10 @@ footer a:hover {
     margin: 10px;
     cursor: pointer;
     margin: 20px;
+}
+
+.fa-solid:hover {
+    color: #fff;
 }
 
 .pokemon-img {
@@ -127,25 +131,42 @@ i {
     display: block;
 }
 
-#types {
+
+/*POKÉFACTS*/
+#pokemon-fact {
     display: flex;
-    flex-wrap: column;
-    height: 100%;
+    flex-direction: row;
+    align-items: center;
 }
 
-.type-style {
+#types, #encounters {
+    display: flex;
+    flex-direction: column;
+    max-height: 600px;
+    width: 300px;
+    justify-content: center;
+    background-color: #fff;
+    align-items: center;
+    margin: auto;
+    overflow: auto;
+}
+
+#types h2, #encounters h2 {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.fact-list-style {
     border: 1px solid black;
     border-radius: 7px;
     background-color: #fff;
     padding: 5px;
     margin: 10px;
+    margin-top: auto;
     align-items: center;
     text-align: center;
-}
-
-.type-style:hover {
-    opacity: 0.5;
-    cursor: pointer;
 }
 
 /*DETAILS*/
