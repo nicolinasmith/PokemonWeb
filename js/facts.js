@@ -93,6 +93,8 @@ displayRandomFact();
 
 
 async function displayTypes() {
+
+  try {
     const alltypes = await fetchTypes();
     alltypes.forEach(type => {
         const typeElement = document.createElement('p');
@@ -100,11 +102,16 @@ async function displayTypes() {
         typesContainer.appendChild(typeElement);
         typeElement.classList.add('fact-list-style');
     });
+  }
+  catch (error) {
+    console.error('Error:', error);
+  }
 }
 
 async function displayEncounters() {
-    const allEncounters = await fetchEncounters(); // Hämta alla möten
 
+  try {
+    const allEncounters = await fetchEncounters();
     for (const encounter of allEncounters) {
         const container = document.createElement('div');
         const encounterElement = document.createElement('p');
@@ -121,9 +128,14 @@ async function displayEncounters() {
         encountersContainer.appendChild(container);
         container.classList.add('fact-list-style');
     }
+  }
+  catch (error) {
+    console.error('Error:', error);
+  }
 }
 
 function displayRandomFact() {
+
     factsContainer.innerHTML = "";
     const facts = document.createElement('div');
     const factText = document.createElement('p');

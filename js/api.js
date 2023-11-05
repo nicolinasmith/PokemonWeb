@@ -12,9 +12,8 @@ async function fetchPokemon(params) {
       if (!response.ok) {
         throw new Error(`Something went wrong. Error status: ${response.status}`);
       }
-      
-      const allPokemon = await response.json();
-      return allPokemon;
+      const pokemon = await response.json();
+      return pokemon;
     } catch (error) {
       console.error('Error:', error);
     }
