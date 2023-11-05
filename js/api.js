@@ -37,10 +37,10 @@ async function fetchCharacteristics(pokemonID) {
     }
 }
 
-async function fetchTypes() {
+async function fetchTypes(params) {
 
     try {
-      const url = baseUrl + endpoints.fetchTypes;
+      const url = baseUrl + endpoints.fetchTypes + params;
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`Something went wrong. Error status: ${response.status}`);

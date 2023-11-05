@@ -1,4 +1,4 @@
-import { fetchTypes, fetchEncounters, fetchEncounterDetails } from "./api.js";
+import { fetchEncounters, fetchEncounterDetails, fetchTypes } from "./api.js";
 
 const typesContainer = document.getElementById('types-container');
 const encountersContainer = document.getElementById('encounters-container');
@@ -86,27 +86,11 @@ const pokemonFacts = [
 let currentRandomFact = 0;
 numberElement.textContent = `${currentRandomFact + 1} of ${pokemonFacts.length}`;
 
-displayTypes();
 displayEncounters();
 displayRandomFact();
+displayTypes();
 
 
-
-async function displayTypes() {
-
-  try {
-    const alltypes = await fetchTypes();
-    alltypes.forEach(type => {
-        const typeElement = document.createElement('p');
-        typeElement.textContent = type[0].toUpperCase() + type.slice(1);
-        typesContainer.appendChild(typeElement);
-        typeElement.classList.add('fact-list-style');
-    });
-  }
-  catch (error) {
-    console.error('Error:', error);
-  }
-}
 
 async function displayEncounters() {
 
@@ -146,6 +130,31 @@ function displayRandomFact() {
     facts.appendChild(factText);
     facts.appendChild(factImage);
     factsContainer.appendChild(facts);
+}
+
+async function displayTypes() {
+
+  try {
+    const alltypes = await fetchTypes('');
+    console.log(alltypes);
+    alltypes.forEach(type => {
+        const typeElement = document.createElement('div');
+        const typeName = document.createElement('p');
+        const linkElement = document.createElement('a');
+        typeName.textContent = type[0].toUpperCase() + type.slice(1);
+        linkElement.href = `type.html?type=${type}`;
+        typeElement.appendChild(typeName);
+        typesContainer.appendChild(typeElement);
+        typeElement.classList.add('types-list');
+
+        typeElement.addEventListener('click', () => {
+            window.location.href = `type.html?type=${type}`;
+        });
+    });
+  }
+  catch (error) {
+    console.error('Error:', error);
+  }
 }
 
 pagingForward.addEventListener('click', () => {

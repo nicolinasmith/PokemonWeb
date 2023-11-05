@@ -6,8 +6,8 @@
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <link type="text/css" rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <script type="module" src="./js/search.js"></script>
-    <title>PokemonWeb | Find a pokemon</title>
+    <script type="module" src="./js/type.js"></script>
+    <title>PokemonWeb | Type</title>
     <script> </script>
 </head>
 <body>
@@ -16,23 +16,16 @@
             <ul class="nav-list">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="facts.html">PokéFact</a></li>
-                <li><a href="search.html" class="li-current">Find a pokemon</a></li>
+                <li><a href="search.html">Find a pokemon</a></li>
             </ul>
             <h1>PokemonWeb</h1>
         </nav>
     </header>
 
-    <main id="find-container">
-        <div class="search-container frame">
-            <div id="search">
-                <h2>Search for a pokemon</h2>
-                <input type="text" id="search-input" placeholder="Enter a pokemon name or id">
-                <button id="search-button">Search</button>
-                <div id="search-result-container">
-                    <i id="search-comment"></i>
-                    <div id="search-result"></div>
-                </div>
-            </div>
+    <main id="type-detail-container">
+        <div class="frame">
+            <h2 id="type-header"></h2>
+            <div id="pokemon-by-types"></div>
         </div>
     </main>
 
@@ -40,6 +33,7 @@
         <p>Created by <a href=#>Nicolina Smith</a></p>
         <p>Pokemon fact from <a href="https://pokeapi.co/">PokéAPI</a></p>
     </footer>
+
     
 </body>
 </html>
