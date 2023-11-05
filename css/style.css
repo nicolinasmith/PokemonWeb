@@ -179,27 +179,41 @@ i {
     text-align: center;
 }
 
-#random-fact {
-    color: rgb(185, 145, 211)
+.frame h2 {
+    text-align: center;
+    color: rgb(185, 145, 211);
+    text-shadow: 2px 2px 4px rgba(183, 145, 211, 0.348)
 }
 
-#random-fact h2 {
+#number-of-facts {
+    color: rgb(185, 145, 211);
     text-align: center;
+    margin-top: 10px;
+}
+
+#random-fact-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 #fact-container {
+    display: flex;
     background-color: #fff;
     color: black;
     padding: 20px;
     border: 1px solid rgb(185, 145, 211);
     border-radius: 10px;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 }
 
-#random-fact-container {
-    display: flex;
-    flex-direction: row;
+.img-size {
+    width: 150px;
+    height: 150px;
+    margin-left: 15px;
+    margin-top: 10px;
 }
 
 /*DETAILS*/
