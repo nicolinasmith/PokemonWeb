@@ -10,7 +10,8 @@ console.log(allPokemons);
 const allPokemonsData = allPokemons.results.map(pokemon => ({
     name: pokemon.name,
     id: pokemon.url.split('/').slice(-2)[0],
-    imageUrl: `https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemon.url.split('/').slice(-2)[0]}.svg`,
+    //imageUrl: `https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemon.url.split('/').slice(-2)[0]}.svg`,
+    imageUrl: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`,
 }));
 
 

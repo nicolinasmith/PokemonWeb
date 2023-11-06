@@ -6,6 +6,7 @@ const type = params.get('type');
 
 const container = document.getElementById('pokemon-by-types');
 const header = document.getElementById('type-header');
+const comment = document.getElementById('type-comment');
 header.textContent = `Pokemons of type '${type[0].toUpperCase() + type.slice(1)}':`;
 
 const allPokemons = await fetchPokemon('/?limit=1000');
@@ -14,7 +15,7 @@ const allPokemonsData = allPokemons.results.map(pokemon => ({
 }));
 
 const list = await getPokemonsByType();
-console.log(list);
+comment.textContent = `Found ${list.length} pokemons.`;
 await displayPokemons();
 
 async function getPokemonsByType() {
@@ -27,7 +28,8 @@ async function getPokemonsByType() {
             name: specifikPokemon.name,
             id: specifikPokemon.id,
             types: specifikPokemon.types.map(type => type.type.name),
-            imageUrl: `https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemon.id}.svg`,
+            imageUrl: specifikPokemon.sprites.other.dream_world.front_default,
+            //imageUrl: `https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemon.id}.svg`,
         };
         specifikPokemonData.push(specifikData);
     }
