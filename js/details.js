@@ -29,8 +29,11 @@ async function displayPokemon() {
     const weightInKg = (pokemon.weight / 10).toFixed(1);
     const thisTypes = pokemon.types.map(type => type.type.name).join(', ');
 
-    img.src = `https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemonID}.svg`;
+    img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonID}.svg`;
     img.alt = `Picture of ${pokemon.name}`;
+    img.onerror = function() {
+        img.src = '/img/no-pic.jpg';
+    };
     name.textContent = pokemon.name.toUpperCase();
     types.textContent = `Type: ${thisTypes[0].toUpperCase() + thisTypes.slice(1)}.`;
     description.textContent = `Characteristics: ${characteristics}.`;

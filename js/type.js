@@ -28,8 +28,7 @@ async function getPokemonsByType() {
             name: specifikPokemon.name,
             id: specifikPokemon.id,
             types: specifikPokemon.types.map(type => type.type.name),
-            imageUrl: specifikPokemon.sprites.other.dream_world.front_default,
-            //imageUrl: `https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemon.id}.svg`,
+            imageUrl: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${specifikPokemon.id}.svg`,
         };
         specifikPokemonData.push(specifikData);
     }
@@ -52,6 +51,10 @@ async function displayPokemons() {
         pokemonImage.src = pokemon.imageUrl;
         pokemonImage.alt = pokemon.name;
         linkElement.href = `details.html?id=${pokemon.id}`;
+
+        pokemonImage.onerror = function() {
+            pokemonImage.src = '/img/no-pic.jpg';
+        };
 
         pokemonContainer.appendChild(pokemonName);
         pokemonContainer.appendChild(pokemonImage);

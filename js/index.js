@@ -41,8 +41,10 @@ async function updatePokemonList() {
             const characteristicsElement = document.createElement('i');
             
             imgElement.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonID}.svg`;
-            //imgElement.src = `https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemonID}.svg`;
             imgElement.alt = pokemon.name;
+            imgElement.onerror = function() {
+                imgElement.src = '/img/no-pic.jpg';
+            };
 
             linkElement.href = `details.html?id=${pokemonID}`;
 
