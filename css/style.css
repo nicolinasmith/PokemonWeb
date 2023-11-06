@@ -374,7 +374,8 @@ i {
 }
 
 .types-list:hover {
-    opacity: 0.5;
+    opacity: 0.8;
+    background-color: rgb(185, 154, 205);
     cursor: pointer;
 }
 
@@ -387,14 +388,27 @@ i {
     border: 2px solid rgb(185, 145, 211);
 }
 
-.pokemon-by-types {
+#types-comment {
+    color: rgb(185, 145, 211);
+}
+
+#type-detail-container {
+    width: 100%;
+
+}
+
+#pokemon-by-types {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    justify-content: space-around;
 }
 
-.pokemon-by-type > div {
-    width: 20%;
+#pokemon-by-types > div {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    
 }
 
 .type-pokemon-style {
@@ -403,10 +417,12 @@ i {
     margin: 15px;
     text-align: center;
     border-radius: 10px;
+    padding: 10px;
 }
 
 .type-pokemon-style:hover {
-    opacity: 0.5;
+    opacity: 0.8;
+    background-color: rgb(185, 154, 205);
     cursor: pointer;
 }
 

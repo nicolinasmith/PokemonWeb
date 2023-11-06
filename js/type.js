@@ -44,15 +44,15 @@ async function displayPokemons() {
     list.forEach(pokemon => {
         const pokemonContainer = document.createElement('div');
         const pokemonName = document.createElement('b');
-        //const pokemonImage = document.createElement('img');
+        const pokemonImage = document.createElement('img');
         const linkElement = document.createElement('a');
-        pokemonName.textContent = pokemon.name.toUpperCase();
-        //pokemonImage.src = pokemon.imageUrl;
-        //pokemonImage.alt = pokemon.name;
+        pokemonName.textContent = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
+        pokemonImage.src = pokemon.imageUrl;
+        pokemonImage.alt = pokemon.name;
         linkElement.href = `details.html?id=${pokemon.id}`;
 
         pokemonContainer.appendChild(pokemonName);
-        //pokemonContainer.appendChild(pokemonImage);
+        pokemonContainer.appendChild(pokemonImage);
         pokemonContainer.classList.add('type-pokemon-style');
         container.appendChild(pokemonContainer);
 

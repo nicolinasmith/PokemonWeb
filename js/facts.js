@@ -136,6 +136,7 @@ async function displayTypes() {
 
   try {
     const alltypes = await fetchTypes('');
+    alltypes.sort((a, b) => a.localeCompare(b));
     console.log(alltypes);
     alltypes.forEach(type => {
         const typeElement = document.createElement('div');

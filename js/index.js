@@ -25,8 +25,8 @@ pagingForward.addEventListener('click', async () => {
 async function updatePokemonList() {
     try {
         pokemonContainer.innerHTML = '';
-        const offset = currentPageIndex * 10;
-        const pokemons = await fetchPokemon(`?limit=10&offset=${offset}`);
+        const offset = currentPageIndex * 12;
+        const pokemons = await fetchPokemon(`?limit=12&offset=${offset}`);
 
         const promises = pokemons.results.map(async pokemon => {
             const url = pokemon.url;
