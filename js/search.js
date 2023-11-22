@@ -32,9 +32,9 @@ async function displayPokemon(matchingPokemons, isSearchedByString) {
     if (matchingPokemons.length > 0) {
 
         if (!isSearchedByString) {
-            searchComment.textContent = `Found a pokemon with the id '${input.value}'.`;
+            searchComment.textContent = `Found a pokemon with the id '${input.value}':`;
         } else {
-            searchComment.textContent = `Found ${matchingPokemons.length} pokemon(s) matching '${input.value}'.`;
+            searchComment.textContent = `Found ${matchingPokemons.length} pokemon(s) matching '${input.value}':`;
         }
 
         matchingPokemons.forEach(pokemon => {

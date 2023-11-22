@@ -49,7 +49,7 @@ async function updatePokemonList() {
             linkElement.href = `details.html?id=${pokemonID}`;
 
             let pokemonCharacteristics = await fetchCharacteristics(pokemonID);
-            characteristicsElement.textContent = pokemonCharacteristics;
+            characteristicsElement.textContent = pokemonCharacteristics !== undefined ? pokemonCharacteristics : "Characteristics not found";
             nameElement.textContent = pokemon.name.toUpperCase();
 
             imgElement.classList.add('pokemon-img');

@@ -10,6 +10,7 @@ const comment = document.getElementById('type-comment');
 header.textContent = `Pokemons of type '${type[0].toUpperCase() + type.slice(1)}':`;
 
 const allPokemons = await fetchPokemon('/?limit=1000');
+console.log(allPokemons);
 const allPokemonsData = allPokemons.results.map(pokemon => ({
     id: pokemon.url.split('/').slice(-2)[0],
 }));
